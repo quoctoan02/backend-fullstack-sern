@@ -11,11 +11,12 @@ import * as actions from '../../../../store/actions';
 import _ from 'lodash';
 import Select from 'react-select';
 import { toast } from 'react-toastify';
+import moment from 'moment';
 class BookingModal extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            fullname: '',
+            fullName: '',
             phoneNumber: '',
             email: '',
             address: '',
@@ -76,7 +77,7 @@ class BookingModal extends Component {
     handleConfirmBooking = async () => {
         //validate input
         let {
-            fullname,
+            fullName,
             phoneNumber,
             email,
             address,
@@ -88,20 +89,26 @@ class BookingModal extends Component {
             genders,
             timeType,
         } = this.state;
-        let date = new Date(this.state.birthDay);
+        let date = moment(birthDay).format('YYYY-MM-DD');
+        let timeString = this.buildTimeBooking(this.props.data);
+        let doctorName = this.buildDoctorName(this.props.data);
         let data = {
-            fullname,
+            doctorName,
+            fullName,
             phoneNumber,
             email,
             address,
             reason,
             doctorId,
             date,
+            time: timeString,
             gender,
             selectedGender: selectedGender.value,
             genders,
             timeType,
+            language: this.props.language,
         };
+        console.log(data);
         let res = await postPatientBookAppointment(data);
         if (res && res.errCode === 0) {
             toast.success(res.errMessage);
@@ -110,11 +117,42 @@ class BookingModal extends Component {
             toast.error(res.errMessage);
         }
     };
+    capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
 
+    buildTimeBooking = (dataTime) => {
+        let { language } = this.props;
+        if (dataTime && !_.isEmpty(dataTime)) {
+            let time =
+                language === LANGUAGES.VI
+                    ? dataTime.timeTypeData.valueVi
+                    : dataTime.timeTypeData.valueEn;
+            let date =
+                language === LANGUAGES.VI
+                    ? moment.unix(+dataTime.date / 1000).format('dddd - DD/MM/YYYY')
+                    : moment
+                          .unix(+dataTime.date / 1000)
+                          .locale('en')
+                          .format('ddd - DD/MM/YYYY');
+            return `${time} - ${this.capitalizeFirstLetter(date)}`;
+        }
+        return '';
+    };
+    buildDoctorName = (dataTime) => {
+        let { language } = this.props;
+        if (dataTime && !_.isEmpty(dataTime)) {
+            let name =
+                language === LANGUAGES.VI
+                    ? `${dataTime.doctorData.lastName} ${dataTime.doctorData.firstName}`
+                    : `${dataTime.doctorData.firstName} ${dataTime.doctorData.lastName}`;
+            return name;
+        }
+        return '';
+    };
     handleCancelBooking = () => {};
     render() {
         let { closeBookingModal, isOpenModal, data } = this.props;
-        console.log(this.state);
         return (
             <Modal
                 size="lg"
@@ -144,13 +182,13 @@ class BookingModal extends Component {
                         <div className="row form-booking">
                             <div className="col-6 form-group">
                                 <label>
-                                    <FormattedMessage id="patient.booking-modal.fullname" />
+                                    <FormattedMessage id="patient.booking-modal.full-name" />
                                 </label>
                                 <input
                                     className="form-control"
-                                    value={this.state.fullname}
+                                    value={this.state.fullName}
                                     onChange={(event) =>
-                                        this.handleOnChangeInput(event, 'fullname')
+                                        this.handleOnChangeInput(event, 'fullName')
                                     }
                                 />
                             </div>

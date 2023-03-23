@@ -173,8 +173,8 @@
         },
         "booking-modal": {
             "title": "Infomation of booking medical appointment",
-            "fullname": "Fullname",
-            "phone-number": "Phone Number",
+            "full-name": "Full name",
+            "phone-number": "Phone number",
             "birth-day": "Date of birth",
             "gender": "Gender",
             "address": "Address",

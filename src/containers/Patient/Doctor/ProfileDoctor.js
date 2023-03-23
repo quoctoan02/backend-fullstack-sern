@@ -42,8 +42,10 @@ class ProfileDoctor extends Component {
         }
         return result;
     };
-
-    renderBookingModal = (dataTime) => {
+    capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+    renderTimeBooking = (dataTime) => {
         let { language } = this.props;
         if (dataTime && !_.isEmpty(dataTime)) {
             let time =
@@ -60,7 +62,7 @@ class ProfileDoctor extends Component {
             return (
                 <>
                     <div>
-                        {time} - {date}
+                        {time} - {this.capitalizeFirstLetter(date)}
                     </div>
                     <div>
                         <FormattedMessage id="patient.profile-doctor.free-booking" />
@@ -97,7 +99,7 @@ class ProfileDoctor extends Component {
                                 dataProfile.Markdown.description && (
                                     <span>{dataProfile.Markdown.description}</span>
                                 )} */}
-                            {this.renderBookingModal(dataTime)}
+                            {this.renderTimeBooking(dataTime)}
                         </div>
                     </div>
                 </div>

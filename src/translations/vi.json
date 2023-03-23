@@ -184,7 +184,7 @@
         },
         "booking-modal": {
             "title": "Thông tin đặt lịch khám bệnh",
-            "fullname": "Họ và tên",
+            "full-name": "Họ và tên",
             "phone-number": "Số điện thoại",
             "birth-day": "Ngày sinh",
             "gender": "Giới tính",
