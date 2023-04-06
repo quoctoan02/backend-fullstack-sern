@@ -63,7 +63,8 @@
             "manage-handbook": "Manage handbook"
         },
         "doctor": {
-            "manage-schedule": "Manage schedule"
+            "manage-schedule": "Manage schedule",
+            "manage-patient": "Manage patient"
         }
     },
     "system": {
@@ -151,7 +152,8 @@
     },
     "homepage": {
         "outstanding-doctor": "Last week's featured doctor",
-        "more-info": "More info"
+        "more-info": "More info",
+        "popular-specialty": "Popular specialties"
     },
     "manage-schedule": {
         "title": "Manage Doctor's Schedule",
@@ -180,7 +182,8 @@
             "address": "Address",
             "confirm": "Confirm",
             "cancel": "Cancel",
-            "reason": "Reason"
+            "reason": "Reason",
+            "illness-history": "History of illness"
         },
         "profile-doctor": {
             "free-booking": "Free booking",
@@ -198,7 +201,9 @@
             "province": "Province",
             "note": "Note",
             "name-clinic": "Clinic's name",
-            "address-clinic": "Clinic's address"
+            "address-clinic": "Clinic's address",
+            "choose-specialty": "Choose specialty",
+            "choose-clinic": "Choose clinic"
         }
     }
 }

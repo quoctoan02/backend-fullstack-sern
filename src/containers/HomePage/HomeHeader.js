@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import "./HomeHeader.scss";
-import { FormattedMessage } from "react-intl";
-import { LANGUAGES } from "../../utils";
-import { changeLanguageApp } from "../../store/actions";
-import { withRouter } from "react-router";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import './HomeHeader.scss';
+import { FormattedMessage } from 'react-intl';
+import { LANGUAGES } from '../../utils';
+import { changeLanguageApp } from '../../store/actions';
+import { withRouter } from 'react-router';
 
 class HomeHeader extends Component {
     changeLanguage = (language) => {
@@ -14,7 +14,7 @@ class HomeHeader extends Component {
 
     returnHome = () => {
         if (this.props.history) {
-            console.log("this.props.history: ", this.props.history);
+            console.log('this.props.history: ', this.props.history);
             this.props.history.push(`/home`);
         }
     };
@@ -26,7 +26,7 @@ class HomeHeader extends Component {
                 <div className="home-header-container">
                     <div className="home-header-content">
                         <div className="left-content">
-                            <i class="fas fa-bars"></i>
+                            {/* <i class="fas fa-bars"></i> */}
                             <div
                                 className="header-logo"
                                 onClick={() => this.returnHome()}
@@ -77,14 +77,14 @@ class HomeHeader extends Component {
                         <div className="right-content">
                             <div className="support">
                                 <i className="fas fa-question-circle">
-                                    {" "}
+                                    {' '}
                                     <FormattedMessage id="home-header.support" />
                                 </i>
                                 <div
                                     className={
                                         currentLanguage === LANGUAGES.VI
-                                            ? "language-vi active"
-                                            : "language-vi"
+                                            ? 'language-vi active'
+                                            : 'language-vi'
                                     }
                                 >
                                     <span
@@ -93,13 +93,13 @@ class HomeHeader extends Component {
                                         }}
                                     >
                                         VI
-                                    </span>{" "}
+                                    </span>{' '}
                                 </div>
                                 <div
                                     className={
                                         currentLanguage === LANGUAGES.EN
-                                            ? "language-en active"
-                                            : "language-en"
+                                            ? 'language-en active'
+                                            : 'language-en'
                                     }
                                 >
                                     <span
@@ -199,11 +199,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        changeLanguageAppRedux: (languageInput) =>
-            dispatch(changeLanguageApp(languageInput)),
+        changeLanguageAppRedux: (languageInput) => dispatch(changeLanguageApp(languageInput)),
     };
 };
 
-export default withRouter(
-    connect(mapStateToProps, mapDispatchToProps)(HomeHeader)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeHeader));

@@ -8,6 +8,7 @@ import { getProfileDoctor } from '../../../services/userService';
 import { NumericFormat } from 'react-number-format';
 import _ from 'lodash';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 class ProfileDoctor extends Component {
     constructor(props) {
         super(props);
@@ -54,11 +55,8 @@ class ProfileDoctor extends Component {
                     : dataTime.timeTypeData.valueEn;
             let date =
                 language === LANGUAGES.VI
-                    ? moment.unix(+dataTime.date / 1000).format('dddd - DD/MM/YYYY')
-                    : moment
-                          .unix(+dataTime.date / 1000)
-                          .locale('en')
-                          .format('ddd - DD/MM/YYYY');
+                    ? moment(dataTime.date).format('dddd - DD/MM/YYYY')
+                    : moment(dataTime.date).locale('en').format('ddd - DD/MM/YYYY');
             return (
                 <>
                     <div>
@@ -75,7 +73,8 @@ class ProfileDoctor extends Component {
     render() {
         let { dataProfile } = this.state;
         let doctorInfo = dataProfile.Doctor_Info;
-        let { language, dataTime } = this.props;
+        let { language, dataTime, isHidePrice, isShowLinkDetail, doctorId, isShowDescription } =
+            this.props;
         let nameVi = '';
         let nameEn = '';
         if (dataProfile && dataProfile.positionData) {
@@ -94,39 +93,46 @@ class ProfileDoctor extends Component {
                     <div className="content-right">
                         <div className="up">{language === LANGUAGES.VI ? nameVi : nameEn}</div>
                         <div className="down">
-                            {/* {dataProfile &&
+                            {isShowDescription &&
+                                dataProfile &&
                                 dataProfile.Markdown &&
                                 dataProfile.Markdown.description && (
                                     <span>{dataProfile.Markdown.description}</span>
-                                )} */}
+                                )}
                             {this.renderTimeBooking(dataTime)}
                         </div>
                     </div>
                 </div>
-                <div className="price">
-                    <FormattedMessage id="patient.profile-doctor.price" />
-                    {dataProfile && dataProfile.Doctor_Info && language === LANGUAGES.VI && (
-                        <NumericFormat
-                            className="currency"
-                            value={dataProfile.Doctor_Info.priceData.valueVi}
-                            displayType={'text'}
-                            thousandSeparator="."
-                            decimalSeparator=","
-                            suffix={'VND'}
-                        />
-                    )}
-
-                    {dataProfile && dataProfile.Doctor_Info && language === LANGUAGES.EN && (
-                        <NumericFormat
-                            className="currency"
-                            value={dataProfile.Doctor_Info.priceData.valueEn}
-                            displayType={'text'}
-                            thousandSeparator="."
-                            decimalSeparator=","
-                            prefix={'$'}
-                        />
-                    )}
-                </div>
+                {isShowLinkDetail && (
+                    <div className="view-detail-doctor">
+                        <Link to={`/detail-doctor/${doctorId}`}>Xem them</Link>
+                    </div>
+                )}
+                {!isHidePrice && (
+                    <div className="price">
+                        <FormattedMessage id="patient.profile-doctor.price" />
+                        {dataProfile && dataProfile.Doctor_Info && language === LANGUAGES.VI && (
+                            <NumericFormat
+                                className="currency"
+                                value={dataProfile.Doctor_Info.priceData.valueVi}
+                                displayType={'text'}
+                                thousandSeparator="."
+                                decimalSeparator=","
+                                suffix={'VND'}
+                            />
+                        )}
+                        {dataProfile && dataProfile.Doctor_Info && language === LANGUAGES.EN && (
+                            <NumericFormat
+                                className="currency"
+                                value={dataProfile.Doctor_Info.priceData.valueEn}
+                                displayType={'text'}
+                                thousandSeparator="."
+                                decimalSeparator=","
+                                prefix={'$'}
+                            />
+                        )}
+                    </div>
+                )}
             </div>
         );
     }

@@ -74,7 +74,8 @@
             "manage-handbook": "Quản lý cẩm nang"
         },
         "doctor": {
-            "manage-schedule": "Quản lý lịch khám"
+            "manage-schedule": "Quản lý lịch khám",
+            "manage-patient": "Quản lý bệnh nhân"
         }
     },
     "system": {
@@ -162,7 +163,8 @@
     },
     "homepage": {
         "outstanding-doctor": "Bác sĩ nổi bật tuần qua",
-        "more-info": "Xem thêm"
+        "more-info": "Xem thêm",
+        "popular-specialty": "Chuyên khoa phổ biến"
     },
     "manage-schedule": {
         "title": "Quản lý lịch khám bệnh của bác sĩ",
@@ -191,7 +193,8 @@
             "address": "Địa chỉ",
             "confirm": "Xác nhận",
             "cancel": "Hủy",
-            "reason": "Lý do khám"
+            "reason": "Lý do khám",
+            "illness-history": "Tiền sử bệnh tật"
         },
         "profile-doctor": {
             "free-booking": "Miễn phí đặt lịch",
@@ -209,7 +212,9 @@
             "province": "Tỉnh thành",
             "note": "Ghi chú",
             "name-clinic": "Tên phòng khám",
-            "address-clinic": "Địa chỉ phòng khám"
+            "address-clinic": "Địa chỉ phòng khám",
+            "choose-specialty": "Chọn chuyên khoa",
+            "choose-clinic": "Chọn phòng khám"
         }
     }
 }

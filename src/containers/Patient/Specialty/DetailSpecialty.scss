@@ -1,0 +1,83 @@
+.detail-specialty-container {
+
+
+
+    .detail-specialty-body {
+        .detail-specialty-background {
+            background-image: url('https://cdn.bookingcare.vn/fo/2019/12/13/120331-co-xuong-khop.jpg');
+
+            background-repeat  : no-repeat;
+            background-position: center;
+            background-size    : cover;
+
+            .detail-specialty-description {
+                padding         : 0 400px;
+                background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
+            }
+        }
+
+
+        .filter-doctor-by-province {
+            position        : sticky;
+            top             : 75px;
+            background-color: #eee;
+            padding         : 10px 400px;
+
+            .select-province {
+                color           : #337ab7;
+                height          : 40px;
+                width           : 150px;
+                font-size       : 1.2rem;
+                font-weight     : 600;
+                outline         : none;
+                border          : 1px solid #ddd;
+                background-color: white;
+            }
+        }
+
+        .detail-specialty-content {
+            background-color: #eee;
+            padding         : 5px 400px 20px 400px;
+            display         : flex;
+            flex-direction  : column;
+            gap             : 15px;
+
+            .each-doctor {
+
+                display         : flex;
+                width           : 100%;
+                padding         : 10px;
+                border-radius   : 8px;
+                box-shadow      : 0 1px 6px #20212447;
+                background-color: white;
+
+                .detail-specialty-content-left {
+                    width       : 50%;
+                    border-right: 1px solid #ddd;
+                }
+
+
+                .detail-specialty-content-right {
+                    padding: 10px;
+                    width  : 50%;
+
+                    .doctor-schedule {
+                        .doctor-schedule-container {
+                            border-right: unset !important;
+                        }
+                    }
+
+                    .doctor-extra-info {
+                        border-top : 1px solid #ddd;
+                        padding-top: 10px;
+                        margin-top : 10px;
+
+                        .doctor-extra-info-container {
+                            padding-left: 0 !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

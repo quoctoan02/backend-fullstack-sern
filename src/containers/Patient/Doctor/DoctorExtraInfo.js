@@ -15,7 +15,10 @@ class DoctorExtraInfo extends Component {
         };
     }
 
-    async componentDidMount() {}
+    async componentDidMount() {
+        let data = await getExtraDoctorInfo(this.props.doctorIdFromParent);
+        this.setState({ extraInfo: data.data });
+    }
 
     async componentDidUpdate(prevProps, prevState, snapshot) {
         if (
@@ -128,7 +131,7 @@ class DoctorExtraInfo extends Component {
                                 </div>
                             </div>
                             <div className="payment">
-                                {extraInfo && extraInfo.paymentData.valueVi
+                                {extraInfo && extraInfo.paymentData
                                     ? language === LANGUAGES.VI
                                         ? `Người bệnh có thể thanh toán chi phí bằng hình thức: ${extraInfo.paymentData.valueVi}`
                                         : `Patient can pay the fee by method: ${extraInfo.paymentData.valueEn}`

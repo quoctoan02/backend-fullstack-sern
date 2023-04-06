@@ -7,14 +7,11 @@ import HomeFooter from './HomeFooter';
 import HandBook from './Section/HandBook';
 import OutstandingDoctor from './Section/OutstandingDoctor';
 import About from './Section/About';
-import './HomePage.scss'
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
-import MaterialTable from 'material-table'
-
+import './HomePage.scss';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 class HomePage extends Component {
-
     render() {
         let settings = {
             dots: false,
@@ -22,36 +19,30 @@ class HomePage extends Component {
             speed: 500,
             slidesToShow: 4,
             slidesToScroll: 1,
-        }
+        };
 
         return (
             <div>
                 <HomeHeader isShowBanner={true} />
                 <Specialty settings={settings} />
-                <MedicalFacility settings={settings} />
                 <OutstandingDoctor settings={settings} />
+                <MedicalFacility settings={settings} />
                 <HandBook settings={settings} />
                 <About />
                 <HomeFooter />
-
-                <div style={{ height: '300px' }}>
-
-                </div>
             </div>
         );
     }
-
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
-        isLoggedIn: state.user.isLoggedIn
+        isLoggedIn: state.user.isLoggedIn,
     };
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-    };
+const mapDispatchToProps = (dispatch) => {
+    return {};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

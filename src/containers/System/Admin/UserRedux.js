@@ -195,7 +195,7 @@ class UserRedux extends Component {
         } = user;
         let imageBase64 = '';
         if (image) {
-            imageBase64 = new Buffer(image, 'base64').toString('binary');
+            imageBase64 = Buffer.from(image, 'base64').toString('binary');
         }
         this.setState({
             avatar: '',

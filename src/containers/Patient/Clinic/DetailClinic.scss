@@ -1,0 +1,96 @@
+.detail-clinic-container {
+
+    .detail-clinic-body {
+        .clinic-profile {
+            height             : 400px;
+            background-repeat  : no-repeat;
+            background-position: center;
+            background-size    : cover;
+            display            : flex;
+            flex-direction     : column;
+            justify-content    : flex-end;
+
+            .profile-clinic-background {
+                height          : 160px;
+                margin          : 0 400px;
+                background-color: rgba(255, 255, 255, 0.8);
+                display         : flex;
+
+                .avatar-clinic {
+                    background-image   : url('https://cdn.bookingcare.vn/fo/2019/12/13/120331-co-xuong-khop.jpg');
+                    width              : 120px;
+                    margin             : 20px 40px;
+                    height             : 120px;
+                    background-repeat  : no-repeat;
+                    background-position: center;
+                    background-size    : cover;
+                }
+
+                .info-clinic {
+                    display        : flex;
+                    justify-content: center;
+                    flex-direction : column;
+
+                    .name-clinic {
+                        font-size  : 28px;
+                        font-weight: 600;
+                    }
+
+                    .address-clinic {
+                        font-size: 16px;
+
+                    }
+                }
+            }
+        }
+
+        .detail-clinic-description {
+            margin: 50px 400px;
+        }
+
+        .detail-clinic-content {
+            background-color: #eee;
+            padding         : 5px 100px 20px 100px;
+            display         : flex;
+            flex-direction  : column;
+            gap             : 15px;
+
+            .each-doctor {
+
+                display         : flex;
+                width           : 100%;
+                padding         : 10px;
+                border-radius   : 8px;
+                box-shadow      : 0 1px 6px #20212447;
+                background-color: white;
+
+                .detail-clinic-content-left {
+                    width       : 50%;
+                    border-right: 1px solid #ddd;
+                }
+
+
+                .detail-clinic-content-right {
+                    padding: 10px;
+                    width  : 50%;
+
+                    .doctor-schedule {
+                        .doctor-schedule-container {
+                            border-right: unset !important;
+                        }
+                    }
+
+                    .doctor-extra-info {
+                        border-top : 1px solid #ddd;
+                        padding-top: 10px;
+                        margin-top : 10px;
+
+                        .doctor-extra-info-container {
+                            padding-left: 0 !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

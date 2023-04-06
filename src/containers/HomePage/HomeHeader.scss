@@ -1,21 +1,20 @@
 .home-header-container {
-    height          : 60px;
+    height          : 80px;
     width           : 100%;
     // border: 1px solid red;
-    margin          : 10px auto;
-    padding         : 0 100px;
+    margin          : 0 auto;
+    padding         : 0 150px;
     z-index         : 999;
     background-color: white;
-    top             : -1px;
+    top             : -5px;
     position        : sticky;
 
     .home-header-content {
-        width     : 100%;
-        height    : 100%;
-        display   : flex;
-        margin-top: 10px;
-
-        margin-bottom: 10px;
+        width           : 100%;
+        height          : 100%;
+        display         : flex;
+        margin-top      : 5px;
+        // margin-bottom: 5px;
 
         .left-content {
             width        : 20%;
@@ -24,7 +23,7 @@
             align-items  : center;
 
             .header-logo {
-                background     : url("../../assets/images/logo.svg") center center no-repeat;
+                background     : url("../../assets/svg/logo.svg") center center no-repeat;
                 height         : 100%;
                 width          : 100%;
                 background-size: 50%;

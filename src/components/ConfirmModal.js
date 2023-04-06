@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { FormattedMessage } from "react-intl";
-import { connect } from "react-redux";
-import { Modal } from "reactstrap";
+import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { connect } from 'react-redux';
+import { Modal } from 'reactstrap';
 
-import "./ConfirmModal.scss";
-import * as actions from "../store/actions";
-import { KeyCodeUtils } from "../utils";
+import './ConfirmModal.scss';
+import * as actions from '../store/actions';
+import { KeyCodeUtils } from '../utils';
 
 class ConfirmModal extends Component {
     constructor(props) {
@@ -20,21 +20,17 @@ class ConfirmModal extends Component {
     };
 
     componentDidMount() {
-        document.addEventListener("keydown", this.handlerKeyDown);
+        document.addEventListener('keydown', this.handlerKeyDown);
     }
 
     componentWillUnmount() {
-        document.removeEventListener("keydown", this.handlerKeyDown);
+        document.removeEventListener('keydown', this.handlerKeyDown);
     }
 
     handlerKeyDown = (event) => {
         const keyCode = event.which || event.keyCode;
         if (keyCode === KeyCodeUtils.ENTER) {
-            if (
-                !this.acceptBtnRef.current ||
-                this.acceptBtnRef.current.disabled
-            )
-                return;
+            if (!this.acceptBtnRef.current || this.acceptBtnRef.current.disabled) return;
             this.acceptBtnRef.current.click();
         }
     };
@@ -50,7 +46,7 @@ class ConfirmModal extends Component {
     onClose = () => {
         this.props.setContentOfConfirmModal({
             isOpen: false,
-            messageId: "",
+            messageId: '',
             handleFunc: null,
             dataFunc: null,
         });
@@ -67,7 +63,7 @@ class ConfirmModal extends Component {
             >
                 <div className="modal-header">
                     <div className="modal-title">
-                        <FormattedMessage id={"common.confirm"} />
+                        <FormattedMessage id={'common.confirm'} />
                     </div>
                     <div className="col-auto">
                         <button
@@ -87,7 +83,7 @@ class ConfirmModal extends Component {
                                     id={
                                         contentOfConfirmModal.messageId
                                             ? contentOfConfirmModal.messageId
-                                            : "common.confirm-this-task"
+                                            : 'common.confirm-this-task'
                                     }
                                 />
                             </div>
@@ -107,9 +103,7 @@ class ConfirmModal extends Component {
                                         className="btn btn-add"
                                         onClick={this.onAcceptBtnClick}
                                     >
-                                        <FormattedMessage
-                                            id={"common.accept"}
-                                        />
+                                        <FormattedMessage id={'common.accept'} />
                                     </button>
                                 </div>
                             </div>

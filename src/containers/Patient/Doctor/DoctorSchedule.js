@@ -80,7 +80,7 @@ class DoctorSchedule extends Component {
                 }
             }
             object.label = this.capitalizeFirstLetter(labelDate);
-            object.value = moment(new Date()).add(i, 'days').startOf('day').valueOf();
+            object.value = moment(new Date()).add(i, 'day').format('YYYY-MM-DD');
             allDays.push(object);
         }
         return allDays;
@@ -89,6 +89,7 @@ class DoctorSchedule extends Component {
     handleOnChangeSelectDate = async (event) => {
         if (this.props.doctorIdFromParent && this.props.doctorIdFromParent !== -1) {
             let date = event.target.value;
+            console.log(date);
             let res = await getScheduleByDate(this.props.doctorIdFromParent, date);
             if (res && res.errCode === 0) {
                 this.setState({

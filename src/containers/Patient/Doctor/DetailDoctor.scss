@@ -3,7 +3,7 @@
 
     .intro-doctor {
         display: flex;
-        margin : 0 100px;
+        margin : 0 400px;
 
         .content-left {
             width              : 20%;
@@ -13,7 +13,7 @@
             width              : 120px;
             height             : 120px;
             border-radius      : 50%;
-            margin             : 10px 20px;
+            margin             : 10px 20px 10px 0;
         }
 
         .content-right {
@@ -23,7 +23,7 @@
             padding-left  : 10px;
 
             .up {
-                font-size  : 20px;
+                font-size  : 24px;
                 font-weight: 600;
                 padding-top: 15px;
             }
@@ -35,7 +35,7 @@
     }
 
     .schedule-doctor {
-        margin    : 0 100px;
+        margin    : 0 400px;
         display   : flex;
         min-height: 200px;
         padding   : 10px 0;
@@ -53,7 +53,7 @@
 
     .detail-info-doctor {
         background-color: #f9f9f9;
-        padding         : 10px 100px;
+        padding         : 10px 400px;
 
         border-bottom: 2px solid #ddd;
         border-top   : 2px solid #ddd;
