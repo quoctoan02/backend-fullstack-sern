@@ -15,10 +15,33 @@ class HomePage extends Component {
     render() {
         let settings = {
             dots: false,
-            infinite: false,
+            infinite: true,
             speed: 500,
             slidesToShow: 4,
+            pauseOnHover: true,
             slidesToScroll: 1,
+            autoplaySpeed: 5000,
+            autoplay: true,
+            responsive: [
+                {
+                    breakpoint: 1400,
+                    settings: {
+                        slidesToShow: 3,
+                    },
+                },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 2,
+                    },
+                },
+                {
+                    breakpoint: 576,
+                    settings: {
+                        slidesToShow: 1,
+                    },
+                },
+            ],
         };
 
         return (

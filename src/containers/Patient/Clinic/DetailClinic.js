@@ -39,34 +39,47 @@ class DetailClinic extends Component {
 
     render() {
         let { doctorIds, detailClinic } = this.state;
+        console.log(detailClinic);
         let { language } = this.props;
         return (
             <div className="detail-clinic-container">
                 <HomeHeader isShowBanner={false} />{' '}
-                <div className="detail-clinic-body">
-                    {detailClinic && !_.isEmpty(detailClinic) && (
-                        <div
-                            className="clinic-profile"
-                            style={{
-                                backgroundImage: `url('https://cdn.bookingcare.vn/fo/2019/12/13/120331-co-xuong-khop.jpg')`,
-                            }}
-                        >
-                            <div className="profile-clinic-background">
-                                <div className="avatar-clinic"></div>
-                                <div className="info-clinic">
-                                    <div className="name-clinic">{detailClinic.name}</div>
-                                    <div className="address-clinic">{detailClinic.address}</div>
-                                </div>
+                {detailClinic && !_.isEmpty(detailClinic) && (
+                    <div
+                        className="clinic-profile"
+                        style={{
+                            backgroundImage: `url(${detailClinic.background})`,
+                        }}
+                    >
+                        <div className="profile-clinic-background container-md">
+                            <div
+                                className="avatar-clinic"
+                                style={{
+                                    backgroundImage: `url(${detailClinic.avatar})`,
+                                }}
+                            ></div>
+                            <div className="info-clinic">
+                                <div className="name-clinic">{detailClinic.name}</div>
+                                <div className="address-clinic">{detailClinic.address}</div>
                             </div>
                         </div>
-                    )}
-                    <div
-                        className="detail-clinic-description"
-                        dangerouslySetInnerHTML={{
-                            __html: detailClinic.descriptionHTML,
-                        }}
-                    ></div>
-                    <div className="detail-clinic-content">
+                    </div>
+                )}
+                <div
+                    className="detail-clinic-description container-md"
+                    dangerouslySetInnerHTML={{
+                        __html: detailClinic.descriptionHTML,
+                    }}
+                ></div>
+                <div className="detail-clinic-body ">
+                    <div className="detail-clinic-content container-md">
+                        <div className="doctor-title">
+                            <span className="title-section">Đội ngũ bác sĩ</span>
+                            <button className="btn-section">
+                                <FormattedMessage id="homepage.more-info" />
+                            </button>
+                        </div>
+
                         {doctorIds &&
                             doctorIds.length > 0 &&
                             doctorIds.map((item, index) => {

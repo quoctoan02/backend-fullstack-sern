@@ -19,7 +19,7 @@ class ManageDoctor extends Component {
             contentMarkdown: '',
             contentHTML: '',
             selectedDoctor: '',
-            description: '',
+            description: null,
             listDoctors: [],
 
             listPrice: [],
@@ -239,6 +239,7 @@ class ManageDoctor extends Component {
     };
 
     render() {
+        console.log(this.state.description);
         let {
             listDoctors,
             listProvinces,
@@ -264,7 +265,7 @@ class ManageDoctor extends Component {
                     <FormattedMessage id="admin.manage-doctor.title" />
                 </div>
                 <div className="more-info">
-                    <div className="content-left form-group">
+                    <div className="content-left mb-3">
                         <label>
                             <FormattedMessage id="manage-schedule.choose-doctor" />
                         </label>
@@ -287,7 +288,7 @@ class ManageDoctor extends Component {
                     </div>
                 </div>
                 <div className="more-info-extra row">
-                    <div className="col-4 form-group">
+                    <div className="col-4 mb-3">
                         <label>
                             <FormattedMessage id="admin.manage-doctor.price" />
                         </label>
@@ -299,7 +300,7 @@ class ManageDoctor extends Component {
                             placeholder={<FormattedMessage id="admin.manage-doctor.price" />}
                         />
                     </div>
-                    <div className="col-4 form-group">
+                    <div className="col-4 mb-3">
                         <label>
                             <FormattedMessage id="admin.manage-doctor.payment" />
                         </label>
@@ -311,7 +312,7 @@ class ManageDoctor extends Component {
                             placeholder={<FormattedMessage id="admin.manage-doctor.payment" />}
                         />
                     </div>
-                    <div className="col-4 form-group">
+                    <div className="col-4 mb-3">
                         <label>
                             <FormattedMessage id="admin.manage-doctor.province" />
                         </label>
@@ -323,7 +324,7 @@ class ManageDoctor extends Component {
                             placeholder={<FormattedMessage id="admin.manage-doctor.province" />}
                         />
                     </div>
-                    <div className="col-4 form-group">
+                    <div className="col-4 mb-3">
                         <label>
                             <FormattedMessage id="admin.manage-doctor.name-clinic" />
                         </label>
@@ -333,7 +334,7 @@ class ManageDoctor extends Component {
                             onChange={(event) => this.handleOnChangeText(event, 'nameClinic')}
                         />
                     </div>
-                    <div className="col-4 form-group">
+                    <div className="col-4 mb-3">
                         <label>
                             <FormattedMessage id="admin.manage-doctor.address-clinic" />
                         </label>
@@ -343,11 +344,11 @@ class ManageDoctor extends Component {
                             onChange={(event) => this.handleOnChangeText(event, 'addressClinic')}
                         />
                     </div>
-                    <div className="col-4 form-group">
+                    <div className="col-4 mb-3">
                         <label>
                             <FormattedMessage id="admin.manage-doctor.note" />
                         </label>
-                        <input
+                        <textarea
                             className="form-control"
                             value={note}
                             onChange={(event) => this.handleOnChangeText(event, 'note')}
@@ -355,7 +356,7 @@ class ManageDoctor extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-4 form-group">
+                    <div className="col-4 mb-3">
                         <label>
                             <FormattedMessage id="admin.manage-doctor.choose-specialty" />
                         </label>
@@ -369,7 +370,7 @@ class ManageDoctor extends Component {
                             }
                         />
                     </div>
-                    <div className="col-4 form-group">
+                    <div className="col-4 mb-3">
                         <label>
                             <FormattedMessage id="admin.manage-doctor.choose-clinic" />
                         </label>

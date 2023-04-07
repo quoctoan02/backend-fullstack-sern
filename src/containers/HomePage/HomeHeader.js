@@ -24,7 +24,7 @@ class HomeHeader extends Component {
         return (
             <React.Fragment>
                 <div className="home-header-container">
-                    <div className="home-header-content">
+                    <div className="home-header-content container-md">
                         <div className="left-content">
                             {/* <i class="fas fa-bars"></i> */}
                             <div
@@ -76,7 +76,7 @@ class HomeHeader extends Component {
                         </div>
                         <div className="right-content">
                             <div className="support">
-                                <i className="fas fa-question-circle">
+                                <i className="fa-solid fa-circle-question">
                                     {' '}
                                     <FormattedMessage id="home-header.support" />
                                 </i>
@@ -132,7 +132,7 @@ class HomeHeader extends Component {
                             </div>
                         </div>
                         <div className="content-down">
-                            <div className="options">
+                            <div className="options container-md">
                                 <div className="option-child">
                                     <div className="icon-child">
                                         <i className="far fa-hospital"></i>

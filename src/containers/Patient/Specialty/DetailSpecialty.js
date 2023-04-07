@@ -9,6 +9,7 @@ import DoctorExtraInfo from '../Doctor/DoctorExtraInfo';
 import ProfileDoctor from '../Doctor/ProfileDoctor';
 import { getDetailSpecialty, handleGetAllcodeApi } from '../../../services/userService';
 import _ from 'lodash';
+
 class DetailSpecialty extends Component {
     constructor(props) {
         super(props);
@@ -56,21 +57,23 @@ class DetailSpecialty extends Component {
         return (
             <div className="detail-specialty-container">
                 <HomeHeader isShowBanner={false} />{' '}
-                <div className="detail-specialty-body">
-                    <div className="detail-specialty-background">
+                <div className="detail-specialty-background ">
+                    <div className="detail-specialty-description">
                         {detailSpecialty && !_.isEmpty(detailSpecialty) && (
                             <div
-                                className="detail-specialty-description"
+                                className="container"
                                 dangerouslySetInnerHTML={{
                                     __html: detailSpecialty.descriptionHTML,
                                 }}
                             ></div>
                         )}
                     </div>
-                    <div className="filter-doctor-by-province">
+                </div>
+                <div className="detail-specialty-body">
+                    <div className="filter-doctor-by-province container-md">
                         {' '}
                         <select
-                            className="select-province form-control"
+                            className="select-province form-select"
                             onClick={(event) => this.handleChangeProvince(event)}
                             defaultValue={'ALL'}
                         >
@@ -96,7 +99,7 @@ class DetailSpecialty extends Component {
                                 })}
                         </select>
                     </div>
-                    <div className="detail-specialty-content">
+                    <div className="detail-specialty-content container-md">
                         {doctorIds &&
                             doctorIds.length > 0 &&
                             doctorIds.map((item, index) => {

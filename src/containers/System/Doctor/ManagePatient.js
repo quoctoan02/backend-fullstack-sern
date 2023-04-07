@@ -111,7 +111,7 @@ class ManagePatient extends Component {
                         <div className="m-p-title">Manage Patient</div>
                         <div className="m-p-body">
                             <div className="row">
-                                <div className="col-3 form-group">
+                                <div className="col-3 mb-3">
                                     <label>Chon ngay kham</label>
                                     <DatePicker
                                         onChange={this.handleOnChangeDatePicker}
@@ -119,7 +119,7 @@ class ManagePatient extends Component {
                                         value={this.state.selectedDate}
                                     />
                                 </div>
-                                <div className="col-12 form-group">
+                                <div className="col-12 mb-3">
                                     <table id="customers">
                                         <tbody>
                                             <tr>
@@ -129,7 +129,8 @@ class ManagePatient extends Component {
                                                 <th>Số điện thoại</th>
                                                 {/* <th>Ngày sinh</th>
                                             <th>Giới tính</th>
-                                            <th>Địa chỉ</th> */}
+                                           */}{' '}
+                                                <th>Địa chỉ</th>
                                                 <th>Lí do khám</th>
                                                 {/* <th>Tiền sử bệnh</th> */}
                                                 <th>Action</th>
@@ -151,7 +152,8 @@ class ManagePatient extends Component {
                                                         <td>
                                                             {item.patientData.genderPatient.valueVi}
                                                         </td>
-                                                        <td>{item.patientData.address}</td> */}
+                                                        */}
+                                                            <td>{item.patientData.address}</td>
                                                             <td>{item.patientData.reason}</td>
                                                             {/* <td>{item.patientData.illnessHistory}</td> */}
                                                             <td>

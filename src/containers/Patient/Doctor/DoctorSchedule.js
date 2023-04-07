@@ -134,10 +134,8 @@ class DoctorSchedule extends Component {
                     </div>
                     <div className="all-available-time">
                         <div className="text-calendar">
-                            <i className="fas fa-calendar-alt">
-                                <span>
-                                    <FormattedMessage id="patient.detail-doctor.schedule" />
-                                </span>
+                            <i className="fa-solid fa-calendar-days">
+                                <FormattedMessage id="patient.detail-doctor.schedule" />
                             </i>
                         </div>
                         <div className="time-content">

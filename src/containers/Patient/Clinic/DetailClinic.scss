@@ -1,59 +1,82 @@
 .detail-clinic-container {
 
-    .detail-clinic-body {
-        .clinic-profile {
-            height             : 400px;
-            background-repeat  : no-repeat;
-            background-position: center;
-            background-size    : cover;
-            display            : flex;
-            flex-direction     : column;
-            justify-content    : flex-end;
+    .clinic-profile {
+        height             : 400px;
+        background-repeat  : no-repeat;
+        background-position: center;
+        background-size    : cover;
+        display            : flex;
+        flex-direction     : column;
+        justify-content    : flex-end;
 
-            .profile-clinic-background {
-                height          : 160px;
-                margin          : 0 400px;
-                background-color: rgba(255, 255, 255, 0.8);
-                display         : flex;
+        .profile-clinic-background {
+            height          : 160px;
+            background-color: rgba(255, 255, 255, 0.8);
+            display         : flex;
 
-                .avatar-clinic {
-                    background-image   : url('https://cdn.bookingcare.vn/fo/2019/12/13/120331-co-xuong-khop.jpg');
-                    width              : 120px;
-                    margin             : 20px 40px;
-                    height             : 120px;
-                    background-repeat  : no-repeat;
-                    background-position: center;
-                    background-size    : cover;
+            .avatar-clinic {
+                background-image   : url('https://cdn.bookingcare.vn/fo/2019/12/13/120331-co-xuong-khop.jpg');
+                width              : 120px;
+                background-color   : #fff;
+                margin             : 20px 30px;
+                height             : 120px;
+                background-repeat  : no-repeat;
+                background-position: center;
+                background-size    : contain;
+            }
+
+            .info-clinic {
+                display        : flex;
+                justify-content: center;
+                flex-direction : column;
+
+                .name-clinic {
+                    font-size  : 28px;
+                    font-weight: 600;
                 }
 
-                .info-clinic {
-                    display        : flex;
-                    justify-content: center;
-                    flex-direction : column;
-
-                    .name-clinic {
-                        font-size  : 28px;
-                        font-weight: 600;
-                    }
-
-                    .address-clinic {
-                        font-size: 16px;
-
-                    }
+                .address-clinic {
+                    font-size: 16px;
                 }
             }
         }
+    }
 
-        .detail-clinic-description {
-            margin: 50px 400px;
-        }
+    .detail-clinic-description {
+        padding-top   : 30px;
+        padding-bottom: 20px;
+        border-bottom : 2px solid #eee;
+    }
+
+    .detail-clinic-body {
+        margin: 15px auto;
 
         .detail-clinic-content {
-            background-color: #eee;
-            padding         : 5px 100px 20px 100px;
-            display         : flex;
-            flex-direction  : column;
-            gap             : 15px;
+            display       : flex;
+            flex-direction: column;
+            gap           : 15px;
+
+            .title-section {
+                word-wrap  : break-word;
+                font-size  : 24px;
+                font-weight: 600;
+            }
+
+            .btn-section {
+                float         : right;
+                display       : block;
+                padding       : 10px 15px;
+                border        : none;
+                background    : #ebebeb;
+                outline       : none;
+                color         : black;
+                text-transform: uppercase;
+
+                &:hover {
+                    color     : #fff;
+                    background: #f7d800;
+                }
+            }
 
             .each-doctor {
 
@@ -66,6 +89,7 @@
 
                 .detail-clinic-content-left {
                     width       : 50%;
+                    padding     : 10px;
                     border-right: 1px solid #ddd;
                 }
 

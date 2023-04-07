@@ -8,7 +8,7 @@ class HandBook extends Component {
     render() {
         return (
             <div className="section-share section-hand-book">
-                <div className="section-container">
+                <div className="section-container container-md">
                     <div className="section-header">
                         <span className="title-section">Cẩm nang</span>
                         <button className="btn-section">Xem thêm</button>

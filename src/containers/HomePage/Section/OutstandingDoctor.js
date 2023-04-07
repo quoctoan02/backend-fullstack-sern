@@ -6,6 +6,7 @@ import Slider from 'react-slick';
 import * as actions from '../../../store/actions';
 import { LANGUAGES } from '../../../utils';
 import { withRouter } from 'react-router';
+
 class OutstandingDoctor extends Component {
     constructor(props) {
         super(props);
@@ -28,19 +29,24 @@ class OutstandingDoctor extends Component {
         console.log(doctor);
         this.props.history.push(`/detail-doctor/${doctor.id}`);
     };
-
+    getAllDoctors = () => {
+        this.props.history.push(`/all-doctors`);
+    };
     render() {
         let { doctorArr } = this.state;
-        let { language } = this.props;
         console.log(doctorArr);
+        let { language } = this.props;
         return (
             <div className="section-share section-outstanding-doctor">
-                <div className="section-container">
+                <div className="section-container container-md">
                     <div className="section-header">
                         <span className="title-section">
                             <FormattedMessage id="homepage.outstanding-doctor" />
                         </span>
-                        <button className="btn-section">
+                        <button
+                            className="btn-section"
+                            onClick={() => this.getAllDoctors()}
+                        >
                             <FormattedMessage id="homepage.more-info" />
                         </button>
                     </div>
@@ -78,7 +84,12 @@ class OutstandingDoctor extends Component {
                                                             ? nameVi
                                                             : nameEn}
                                                     </div>
-                                                    <div>Tam li hoc</div>
+                                                    <div>
+                                                        {item.Doctor_Info.Specialty &&
+                                                        item.Doctor_Info.Specialty.name
+                                                            ? item.Doctor_Info.Specialty.name
+                                                            : ''}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

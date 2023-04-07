@@ -4,7 +4,6 @@ import '../HomePage.scss';
 import { FormattedMessage } from 'react-intl';
 import Slider from 'react-slick';
 import { getAllSpecialty } from '../../../services/userService';
-import './Specialty.scss';
 import { withRouter } from 'react-router';
 
 class Specialty extends Component {
@@ -25,17 +24,24 @@ class Specialty extends Component {
     handleViewDetailSpecialty = (specialty) => {
         this.props.history.push(`/detail-specialty/${specialty.id}`);
     };
+
+    getAllSpecialties = () => {
+        this.props.history.push('/all-specialties');
+    };
     render() {
         let { allSpecialties } = this.state;
-        console.log('llSpecialty: ', allSpecialties);
+        console.log(this.props.settings);
         return (
             <div className="section-share section-specialty">
-                <div className="section-container">
+                <div className="section-container container-md">
                     <div className="section-header">
                         <span className="title-section">
                             <FormattedMessage id="homepage.popular-specialty" />
                         </span>
-                        <button className="btn-section">
+                        <button
+                            className="btn-section"
+                            onClick={() => this.getAllSpecialties()}
+                        >
                             <FormattedMessage id="homepage.more-info" />
                         </button>
                     </div>

@@ -25,14 +25,22 @@ class Clinic extends Component {
         this.props.history.push(`/detail-clinic/${clinic.id}`);
     };
 
+    getAllClinics = () => {
+        this.props.history.push(`/all-clinics`);
+    };
     render() {
         let { allClinics } = this.state;
         return (
             <div className="section-share section-medical-facility">
-                <div className="section-container">
+                <div className="section-container container-md">
                     <div className="section-header">
                         <span className="title-section">Cơ sở y tế nổi bật</span>
-                        <button className="btn-section">Xem thêm</button>
+                        <button
+                            className="btn-section"
+                            onClick={() => this.getAllClinics()}
+                        >
+                            <FormattedMessage id="homepage.more-info" />
+                        </button>
                     </div>
                     <div className="section-body">
                         <Slider {...this.props.settings}>
@@ -48,7 +56,7 @@ class Clinic extends Component {
                                             <div
                                                 className="bg-image section-clinic"
                                                 style={{
-                                                    backgroundImage: `url(${item.image})`,
+                                                    backgroundImage: `url(${item.avatar})`,
                                                 }}
                                             ></div>
                                             <div className="section-name">{item.name}</div>

@@ -64,7 +64,7 @@ class ManageSpecialty extends Component {
             <div className="manage-specialty-container">
                 <div className="ms-title">Quản lý chuyên khoa</div>
                 <div className="add-new-specialty row">
-                    <div className="col-6 form-group">
+                    <div className="col-6 mb-3">
                         <label className="">Tên chuyên khoa</label>
                         <input
                             className="form-control"
@@ -72,15 +72,15 @@ class ManageSpecialty extends Component {
                             value={this.state.name}
                         />
                     </div>
-                    <div className="col-6 form-group">
+                    <div className="col-6 mb-3">
                         <label className="">Ảnh chuyên khoa</label>
                         <input
                             type="file"
-                            className="form-control-file"
+                            className=" form-control"
                             onChange={(event) => this.handleOnChangeImage(event)}
                         />
                     </div>
-                    <div className="col-12 form-group">
+                    <div className="col-12 mb-3">
                         <MdEditor
                             style={{ height: '400px' }}
                             value={this.state.descriptionMarkdown}
@@ -88,7 +88,7 @@ class ManageSpecialty extends Component {
                             onChange={this.handleEditorChange}
                         />
                     </div>
-                    <div className="col-12 form-group">
+                    <div className="col-12 mb-3">
                         <button
                             type="button"
                             className="btn btn-warning"

@@ -197,7 +197,7 @@ class BookingModal extends Component {
                             />
                         </div>
                         <div className="row form-booking">
-                            <div className="col-6 form-group">
+                            <div className="col-6 mb-3">
                                 <label>
                                     <FormattedMessage id="patient.booking-modal.full-name" />
                                 </label>
@@ -210,7 +210,7 @@ class BookingModal extends Component {
                                 />
                             </div>
                             <div
-                                className="col-3 form-group"
+                                className="col-3 mb-3"
                                 style={{ minWidth: '125px' }}
                             >
                                 <label>
@@ -222,7 +222,7 @@ class BookingModal extends Component {
                                     value={this.state.birthday}
                                 />
                             </div>
-                            <div className="col-3 form-group">
+                            <div className="col-3 mb-3">
                                 <label>
                                     <FormattedMessage id="patient.booking-modal.gender" />
                                 </label>
@@ -233,7 +233,7 @@ class BookingModal extends Component {
                                 />
                             </div>
 
-                            <div className="col-6 form-group">
+                            <div className="col-6 mb-3">
                                 <label>Email</label>
                                 <input
                                     className="form-control"
@@ -241,7 +241,7 @@ class BookingModal extends Component {
                                     onChange={(event) => this.handleOnChangeInput(event, 'email')}
                                 />
                             </div>
-                            <div className="col-6 form-group">
+                            <div className="col-6 mb-3">
                                 <label>
                                     <FormattedMessage id="patient.booking-modal.phone-number" />
                                 </label>
@@ -253,7 +253,7 @@ class BookingModal extends Component {
                                     }
                                 />
                             </div>
-                            <div className="col-12 form-group">
+                            <div className="col-12 mb-3">
                                 <label>
                                     <FormattedMessage id="patient.booking-modal.address" />
                                 </label>
@@ -263,7 +263,7 @@ class BookingModal extends Component {
                                     onChange={(event) => this.handleOnChangeInput(event, 'address')}
                                 />
                             </div>
-                            <div className="col-6 form-group">
+                            <div className="col-6 mb-3">
                                 <label>
                                     <FormattedMessage id="patient.booking-modal.reason" />
                                 </label>
@@ -273,7 +273,7 @@ class BookingModal extends Component {
                                     onChange={(event) => this.handleOnChangeInput(event, 'reason')}
                                 />
                             </div>
-                            <div className="col-6 form-group">
+                            <div className="col-6 mb-3">
                                 <label>
                                     <FormattedMessage id="patient.booking-modal.illness-history" />
                                 </label>

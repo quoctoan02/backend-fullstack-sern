@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { push } from "connected-react-router";
+import { push } from 'connected-react-router';
 // import * as actions from "../store/actions";
-import * as actions from "../../store/actions";
+import * as actions from '../../store/actions';
 
 import './Login.scss';
 import { FormattedMessage } from 'react-intl';
 // import { userService } from '../../services/userService';
 import { handleLoginApi } from '../../services/userService';
-
 
 class Login extends Component {
     constructor(props) {
@@ -17,67 +16,61 @@ class Login extends Component {
             username: '',
             password: '',
             showPassword: false,
-            errMessage: ''
-        }
+            errMessage: '',
+        };
     }
 
     handleOnChangeUserName = (e) => {
         this.setState({
-            username: e.target.value
-        })
-
-    }
+            username: e.target.value,
+        });
+    };
 
     handleOnChangePassword = (e) => {
         this.setState({
-            password: e.target.value
-        })
-
-
-    }
+            password: e.target.value,
+        });
+    };
 
     handleLogin = async () => {
         this.setState({
-            errMessage: ''
-        })
+            errMessage: '',
+        });
         try {
-
             let data = await handleLoginApi(this.state.username, this.state.password);
             if (data && data.errCode !== 0) {
                 this.setState({
-                    errMessage: data.errMessage
-                })
+                    errMessage: data.errMessage,
+                });
             }
             if (data && data.errCode === 0) {
                 this.props.userLoginSuccess(data.user);
                 console.log('loging success');
             }
-
         } catch (e) {
             if (e.response) {
                 if (e.response.data) {
                     this.setState({
-                        errMessage: e.response.data.errMessage
-                    })
+                        errMessage: e.response.data.errMessage,
+                    });
                 }
             }
             console.log('error message', e.response);
         }
-    }
+    };
 
     handleShowHidePassword = () => {
-
         this.setState({
-            showPassword: !this.state.showPassword
-        })
+            showPassword: !this.state.showPassword,
+        });
         console.log(this.state.showPassword);
-    }
+    };
 
     handleOnKeyDown = (event) => {
         if (event.key === 'Enter') {
             this.handleLogin();
         }
-    }
+    };
 
     render() {
         return (
@@ -85,7 +78,7 @@ class Login extends Component {
                 <div className="login-container">
                     <div className="login-content row">
                         <div className="col-12 text-center login-title">Login</div>
-                        <div className="col-12 form-group">
+                        <div className="col-12 mb-3">
                             <label>Username: </label>
                             <input
                                 type="text"
@@ -93,11 +86,9 @@ class Login extends Component {
                                 placeholder="Enter your user name"
                                 value={this.state.username}
                                 onChange={(e) => this.handleOnChangeUserName(e)}
-
                             />
-
                         </div>
-                        <div className="col-12 form-group">
+                        <div className="col-12 mb-3">
                             <label>Password: </label>
                             <div className="login-password">
                                 <input
@@ -109,18 +100,29 @@ class Login extends Component {
                                     onKeyDown={(event) => this.handleOnKeyDown(event)}
                                 />
                                 <span onClick={() => this.handleShowHidePassword()}>
-                                    <i className={this.state.showPassword ? 'fas fa-eye show-password' : 'fas fa-eye-slash show-password'} ></i>
+                                    <i
+                                        className={
+                                            this.state.showPassword
+                                                ? 'fas fa-eye show-password'
+                                                : 'fas fa-eye-slash show-password'
+                                        }
+                                    ></i>
                                 </span>
                             </div>
                         </div>
-                        <div className="col-12" style={{ color: 'red' }}>
+                        <div
+                            className="col-12"
+                            style={{ color: 'red' }}
+                        >
                             {this.state.errMessage}
                         </div>
                         <div className="col-12">
                             <button
                                 className="btn-login"
                                 onClick={() => this.handleLogin()}
-                            >Login</button>
+                            >
+                                Login
+                            </button>
                         </div>
                         <div className="col-12">
                             <span className="forgot-password">Forgot your password?</span>
@@ -135,23 +137,20 @@ class Login extends Component {
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
 
-const mapStateToProps = state => {
-    return {
-    };
+const mapStateToProps = (state) => {
+    return {};
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
     return {
         navigate: (path) => dispatch(push(path)),
         // userLoginFail: () => dispatch(actions.adminLoginFail()),
-        userLoginSuccess: (userInfo) => dispatch(actions.userLoginSuccess(userInfo))
+        userLoginSuccess: (userInfo) => dispatch(actions.userLoginSuccess(userInfo)),
     };
-
-
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

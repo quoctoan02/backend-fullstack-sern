@@ -97,7 +97,9 @@ class ProfileDoctor extends Component {
                                 dataProfile &&
                                 dataProfile.Markdown &&
                                 dataProfile.Markdown.description && (
-                                    <span>{dataProfile.Markdown.description}</span>
+                                    <span style={{ whiteSpace: 'pre-wrap' }}>
+                                        {dataProfile.Markdown.description}
+                                    </span>
                                 )}
                             {this.renderTimeBooking(dataTime)}
                         </div>
@@ -105,7 +107,7 @@ class ProfileDoctor extends Component {
                 </div>
                 {isShowLinkDetail && (
                     <div className="view-detail-doctor">
-                        <Link to={`/detail-doctor/${doctorId}`}>Xem them</Link>
+                        <Link to={`/detail-doctor/${doctorId}`}>Xem thêm</Link>
                     </div>
                 )}
                 {!isHidePrice && (

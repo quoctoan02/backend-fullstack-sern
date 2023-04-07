@@ -107,7 +107,7 @@ class Login extends Component {
                         <h2 className="title">
                             <FormattedMessage id="login.login" />
                         </h2>
-                        <div className="form-group icon-true">
+                        <div className="mb-3 icon-true">
                             <img
                                 className="icon"
                                 src={userIcon}
@@ -126,7 +126,7 @@ class Login extends Component {
 
                         <div
                             id="phone-input-container"
-                            className="form-group icon-true"
+                            className="mb-3 icon-true"
                         >
                             <img
                                 className="icon"
@@ -150,7 +150,7 @@ class Login extends Component {
                             </div>
                         )}
 
-                        <div className="form-group login">
+                        <div className="mb-3 login">
                             <input
                                 ref={this.btnLogin}
                                 id="btnLogin"

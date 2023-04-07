@@ -69,7 +69,7 @@ class PrescriptionModal extends Component {
                 <ModalHeader toggle={closeModal}>Gửi hoá đơn khám bệnh</ModalHeader>
                 <ModalBody>
                     <div className="row">
-                        <div className="col-6 form-group">
+                        <div className="col-6 mb-3">
                             <label>Email</label>
                             <input
                                 type="email"
@@ -78,11 +78,11 @@ class PrescriptionModal extends Component {
                                 onChange={(event) => this.handleChangeEmail(event)}
                             />
                         </div>
-                        <div className="col-6 form-group">
+                        <div className="col-6 mb-3">
                             <label>Chon don thuoc</label>
                             <input
                                 type="file"
-                                className="form-control-file"
+                                className=" form-control"
                                 onChange={(event) => this.handleChangeImage(event)}
                             />
                         </div>

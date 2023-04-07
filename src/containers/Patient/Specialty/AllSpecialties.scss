@@ -1,0 +1,63 @@
+.all-section-container {
+
+    .all-section-header {
+        font-size    : 24px;
+        font-weight  : 600;
+        margin-bottom: 15px;
+    }
+
+    .all-section-body {
+        display         : flex;
+        flex-direction  : column;
+        background-color: #fff;
+        box-shadow      : 0 1px 6px #20212447;
+        border-radius   : 5px;
+        border-top      : 1px solid #eee;
+
+        .each-section {
+
+            display      : flex;
+            height       : 120px;
+            border-bottom: 1px solid #eee;
+
+            &:hover {
+                background-color: #fafafa;
+                color           : #45c3d2;
+                cursor          : pointer;
+            }
+
+            &.doctor-section {
+                height: 100px;
+            }
+
+            .avatar-section {
+                margin-top: 10px;
+                height    : 100px;
+                width     : 150px;
+
+                background-size    : cover;
+                background-repeat  : no-repeat;
+                background-position: center center;
+
+                &.avatar-clinic {
+                    background-size: contain;
+                }
+
+                &.avatar-doctor {
+                    border-radius: 50%;
+                    height       : 80px;
+                    width        : 80px;
+                }
+            }
+
+            .basic-title {
+                margin-left: 15px;
+                margin-top : 10px;
+
+                .basic-title-doctor {
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}

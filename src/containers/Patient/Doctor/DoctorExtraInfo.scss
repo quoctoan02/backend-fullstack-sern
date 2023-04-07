@@ -15,8 +15,7 @@
         }
 
         .address-detail {
-            font-weight: 600;
-            color      : #333;
+            color: #333;
 
         }
     }
@@ -24,6 +23,9 @@
     .content-down {
 
         .short-info {
+            text-transform: uppercase;
+            margin-top    : 5px;
+
             .detail {
                 margin-left: 5px;
                 cursor     : pointer;
@@ -32,7 +34,9 @@
         }
 
         .title-price {
-            margin-bottom: 10px;
+            text-transform: uppercase;
+            margin-top    : 5px;
+            margin-bottom : 10px;
         }
 
         .detail-info {

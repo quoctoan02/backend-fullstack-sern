@@ -17,7 +17,8 @@ class ManageClinic extends Component {
         super(props);
         this.state = {
             name: '',
-            imageBase64: '',
+            avatar: '',
+            background: '',
             descriptionHTML: '',
             descriptionMarkdown: '',
             selectedProvince: '',
@@ -75,21 +76,22 @@ class ManageClinic extends Component {
         this.setState({ ...copyState });
     };
 
-    handleOnChangeImage = async (event) => {
+    handleOnChangeImage = async (event, name) => {
         let data = event.target.files;
         let file = data[0];
         if (file) {
             let base64 = await CommonUtils.getBase64(file);
-            this.setState({
-                imageBase64: base64,
-            });
+            console.log(base64);
+            let copyState = { ...this.state };
+            copyState[name] = base64;
+            this.setState({ ...copyState });
         }
     };
 
     handleSaveNewClinic = async () => {
         let res = await createNewClinic({
             provinceId: this.state.selectedProvince.value,
-            imageBase64: this.state.imageBase64,
+            avatar: this.state.avatar,
             descriptionHTML: this.state.descriptionHTML,
             descriptionMarkdown: this.state.descriptionMarkdown,
             address: this.state.address,
@@ -129,7 +131,7 @@ class ManageClinic extends Component {
             <div className="manage-specialty-container">
                 <div className="ms-title">Quản lý phòng khám</div>
                 <div className="add-new-specialty row">
-                    <div className="col-6 form-group">
+                    <div className="col-8 mb-3">
                         <label className="">Tên phòng khám</label>
                         <input
                             className="form-control"
@@ -138,7 +140,7 @@ class ManageClinic extends Component {
                         />
                     </div>
 
-                    <div className="col-3 form-group">
+                    <div className="col-4 mb-3">
                         <label>
                             <FormattedMessage id="admin.manage-doctor.province" />
                         </label>
@@ -150,7 +152,7 @@ class ManageClinic extends Component {
                             placeholder={<FormattedMessage id="admin.manage-doctor.province" />}
                         />
                     </div>
-                    <div className="col-6 form-group">
+                    <div className="col-12 mb-3">
                         <label className="">Địa chỉ chi tiết</label>
                         <input
                             className="form-control"
@@ -158,15 +160,23 @@ class ManageClinic extends Component {
                             value={this.state.address}
                         />
                     </div>
-                    <div className="col-6 form-group">
-                        <label className="">Ảnh phòng khám</label>
+                    <div className="col-6 mb-3">
+                        <label className="">Ảnh đại diện phòng khám</label>
                         <input
                             type="file"
-                            className="form-control-file"
-                            onChange={(event) => this.handleOnChangeImage(event)}
+                            className="form-control"
+                            onChange={(event) => this.handleOnChangeImage(event, 'avatar')}
                         />
                     </div>
-                    <div className="col-12 form-group">
+                    <div className="col-6 mb-3">
+                        <label className="">Ảnh nền phòng khám</label>
+                        <input
+                            type="file"
+                            className="form-control"
+                            onChange={(event) => this.handleOnChangeImage(event, 'background')}
+                        />
+                    </div>
+                    <div className="col-12 mb-3">
                         <MdEditor
                             style={{ height: '400px' }}
                             value={this.state.descriptionMarkdown}
@@ -174,7 +184,7 @@ class ManageClinic extends Component {
                             onChange={this.handleEditorChange}
                         />
                     </div>
-                    <div className="col-12 form-group">
+                    <div className="col-12 mb-3">
                         <button
                             type="button"
                             className="btn btn-warning"

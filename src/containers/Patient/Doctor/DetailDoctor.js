@@ -48,7 +48,7 @@ class DetailDoctor extends Component {
                 <HomeHeader isShowBanner={false} />
 
                 <div className="doctor-detail-container">
-                    <div className="intro-doctor">
+                    <div className="intro-doctor container-md">
                         <div
                             className="content-left"
                             style={{
@@ -61,12 +61,14 @@ class DetailDoctor extends Component {
                                 {detailDoctor &&
                                     detailDoctor.Markdown &&
                                     detailDoctor.Markdown.description && (
-                                        <span>{detailDoctor.Markdown.description}</span>
+                                        <div style={{ whiteSpace: 'pre-wrap' }}>
+                                            {detailDoctor.Markdown.description}
+                                        </div>
                                     )}
                             </div>
                         </div>
                     </div>
-                    <div className="schedule-doctor">
+                    <div className="schedule-doctor container-md">
                         <div className="content-left">
                             <DoctorSchedule doctorIdFromParent={this.state.currentDoctorId} />
                         </div>
@@ -74,17 +76,25 @@ class DetailDoctor extends Component {
                             <DoctorExtraInfo doctorIdFromParent={this.state.currentDoctorId} />
                         </div>
                     </div>
-                    <div className="detail-info-doctor">
-                        {detailDoctor &&
-                            detailDoctor.Markdown &&
-                            detailDoctor.Markdown.contentHTML && (
-                                <div
-                                    className=""
-                                    dangerouslySetInnerHTML={{
-                                        __html: detailDoctor.Markdown.contentHTML,
-                                    }}
-                                ></div>
-                            )}
+                    <div
+                        style={{
+                            borderBottom: '2px solid #ddd',
+                            borderTop: '2px solid #ddd',
+                            backgroundColor: '#f9f9f9',
+                        }}
+                    >
+                        <div className="detail-info-doctor container-md">
+                            {detailDoctor &&
+                                detailDoctor.Markdown &&
+                                detailDoctor.Markdown.contentHTML && (
+                                    <div
+                                        className=""
+                                        dangerouslySetInnerHTML={{
+                                            __html: detailDoctor.Markdown.contentHTML,
+                                        }}
+                                    ></div>
+                                )}
+                        </div>
                     </div>
                     <div className="comment-doctor"></div>
                 </div>

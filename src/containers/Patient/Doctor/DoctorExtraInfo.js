@@ -126,9 +126,12 @@ class DoctorExtraInfo extends Component {
                                         )}
                                     </span>
                                 </div>
-                                <div className="note">
+                                <p
+                                    className="note"
+                                    style={{ whiteSpace: 'pre-wrap' }}
+                                >
                                     {extraInfo && extraInfo.note ? extraInfo.note : ''}
-                                </div>
+                                </p>
                             </div>
                             <div className="payment">
                                 {extraInfo && extraInfo.paymentData

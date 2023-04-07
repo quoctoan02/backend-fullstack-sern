@@ -2,14 +2,14 @@
     height: 330px;
 
     .section-container {
-        margin        : 0 300px;
         display       : flex;
         flex-direction: column;
 
         .section-header {
-            height       : 60px;
-            margin-bottom: 30px;
-            padding-top  : 30px;
+
+            height     : 60px;
+            margin     : 0 7px 30px 7px;
+            padding-top: 30px;
 
             .title-section {
                 word-wrap  : break-word;
@@ -69,12 +69,13 @@
     .section-body {
         .section-customize {
             &:hover {
-                color: #45c3d2;
+                color : #45c3d2;
+                cursor: pointer;
             }
 
             width  : 278px;
-            padding: 5px;
-            cursor : pointer;
+            padding: 7px;
+
 
             .section-name {
                 margin-top: 10px;
@@ -85,7 +86,6 @@
                 background-position: center center;
                 background-repeat  : no-repeat;
                 background-size    : cover;
-                background-color   : #eee;
 
                 &.section-specialty {
                     //background-image: url("../../assets/specialty/tim-mach.jpg");
@@ -96,7 +96,7 @@
                 }
 
                 &.section-clinic {
-                    background-size : auto;
+                    background-size : contain;
                     background-color: #fff;
                 }
 
@@ -115,23 +115,71 @@
 
 
 
+// .slick-prev:before,
+// .slick-next:before {
+//     font-family: "Font Awesome" !important;
+//     color      : rgba(226, 226, 226, 0.855) !important;
+//     //color    : rgba(226, 226, 226, 0.855);
+//     font-size  : 48px !important;
+// }
+
+// .slick-prev {
+//     z-index           : 999 !important;
+//     left              : -10px !important;
+//     height            : 48px !important;
+//     width             : 44px !important;
+//     //background-color: rgba(226, 226, 226, 0.855) !important;
+
+//     &:hover {
+//         // background: rgb(247, 244, 244) !important;
+//     }
+// }
+
+// .slick-disabled {
+//     display: none !important;
+// }
+
+// .slick-next {
+//     z-index             : 999 !important;
+//     right               : -10px !important;
+//     //  border          : 1px solid green !important;
+//     height              : 48px !important;
+//     width               : 44px !important;
+//     background-color    : rgba(226, 226, 226, 0.855) !important;
+// }
 .slick-prev:before,
 .slick-next:before {
-    font-family   : "FontAwesome" !important;
-    // color      : red !important;
+    font-size             : 24px !important;
+    line-height           : 1;
+    opacity               : .75;
+    color                 : white;
+    -webkit-font-smoothing: antialiased;
+    font-family           : 'Glyphicons Halflings' !important;
+    font-style            : normal;
+    font-weight           : 400;
+    background            : #fff;
+    border                : 2px solid #d7d7d7;
+    padding               : 15px;
+    text-align            : center;
+    color                 : #959595 !important;
+}
+
+
+.slick-prev:before {
+    content: "‹" !important;
+}
+
+.slick-next:before {
+    content: "›" !important;
 }
 
 .slick-prev {
-    z-index         : 999 !important;
-    left            : -10px !important;
-    height          : 48px !important;
-    width           : 44px !important;
-    color           : black !important;
-    background-color: rgba(226, 226, 226, 0.855) !important;
+    z-index: 999 !important;
+    left   : -15px !important;
+    top    : 45% !important;
+    height : 48px !important;
+    width  : 44px !important;
 
-    &:hover {
-        background: rgb(247, 244, 244) !important;
-    }
 }
 
 .slick-disabled {
@@ -140,11 +188,11 @@
 
 .slick-next {
     z-index             : 999 !important;
-    right               : -10px !important;
+    right               : -15px !important;
+    top                 : 45% !important;
     //  border          : 1px solid green !important;
     height              : 48px !important;
     width               : 44px !important;
-    background-color    : rgba(226, 226, 226, 0.855) !important;
 }
 
 .home-footer {
@@ -157,9 +205,8 @@
 }
 
 .section-about {
-    height : 600px;
-    border : 2px solid #f5f5f5;
-    padding: 0 300px;
+    height: 600px;
+    border: 2px solid #f5f5f5;
 
     .section-about-header {
         font-size  : 22px;
@@ -170,19 +217,22 @@
     .section-about-content {
         display: flex;
         gap    : 20px;
+        padding: 7px;
 
         .content-left {
             width: 60%;
         }
 
         .content-right {
-            width: 40%;
-
-            p {
-                text-align: justify;
-                font-style: italic;
-                padding   : 15px;
-            }
+            width              : 40%;
+            background-position: center center;
+            background-repeat  : no-repeat;
+            background-size    : contain;
+            background-image   : url("../../assets/about.png") // p {
+            //     text-align: justify;
+            //     font-style: italic;
+            //     padding   : 15px;
+            // }
         }
     }
 }
